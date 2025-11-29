@@ -1,0 +1,2006 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>TSE - Tech Student Enterprise</title>
+    <meta name="description" content="TSE (Tech Student Enterprise) - Empowering Student Talent Through Innovation. Based in Unnao, Uttar Pradesh." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --bg:#f8f9fb;
+            --card:#ffffff;
+            --muted:#6b7280;
+            --accent:#6366f1;
+            --accent-2:#ec4899;
+            --accent-3:#f59e0b;
+            --glass: rgba(255,255,255,0.5);
+            --success:#10b981;
+            --danger:#ef4444;
+            --max-width:1100px;
+            --shadow: 0 4px 20px rgba(99,102,241,0.08);
+            --shadow-lg: 0 12px 40px rgba(99,102,241,0.12);
+        }
+        *{box-sizing:border-box}
+        html{
+            scroll-behavior:smooth;
+            height:100%;
+        }
+        body{height:100%}
+        body{
+            margin:0;
+            font-family:'Inter',system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+            background: linear-gradient(135deg,#f0f4ff 0%, #fff5f9 50%, #fffbf0 100%);
+            color:#1f2937;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            line-height:1.6;
+            padding:16px;
+            display:flex;
+            justify-content:center;
+            min-height:100vh;
+        }
+        .container{
+            width:100%;
+            max-width:var(--max-width);
+            margin:0 auto;
+            padding:0 12px;
+        }
+        header{
+            display:flex;
+            gap:18px;
+            align-items:center;
+            justify-content:space-between;
+            margin-bottom:20px;
+            background:rgba(255,255,255,0.7);
+            backdrop-filter:blur(10px);
+            padding:14px 18px;
+            border-radius:16px;
+            box-shadow:var(--shadow);
+            animation:slideDown 0.5s ease-out;
+        }
+        .brand{
+            display:flex;
+            gap:12px;
+            align-items:center;
+            text-decoration:none;
+            color:inherit;
+            transition:transform .3s ease;
+        }
+        .brand:hover{transform:scale(1.05)}
+        .logo{
+            width:48px;height:48px;border-radius:12px;
+            background:linear-gradient(135deg,var(--accent),var(--accent-2));
+            display:flex;align-items:center;justify-content:center;font-weight:700;
+            color:white;box-shadow:0 8px 24px rgba(99,102,241,0.3);
+        }
+        .brand h1{font-size:18px;margin:0;font-family:'Poppins',sans-serif;color:var(--accent)}
+        nav{display:flex;gap:8px;align-items:center}
+        nav a{
+            color:var(--muted);
+            text-decoration:none;
+            padding:8px 14px;border-radius:10px;font-size:14px;
+            transition:all .3s ease;
+        }
+        nav a:hover{background:rgba(99,102,241,0.1);color:var(--accent)}
+        nav a.cta{
+            background:linear-gradient(135deg,var(--accent),var(--accent-2));
+            color:white;
+            font-weight:600;
+            box-shadow:0 8px 24px rgba(99,102,241,0.3);
+        }
+        /* Hero */
+        .hero{
+            background:linear-gradient(135deg,rgba(255,255,255,0.9),rgba(236,72,153,0.05));
+            border-radius:20px;padding:40px;display:flex;gap:32px;align-items:center;
+            box-shadow:var(--shadow-lg);
+            margin-bottom:28px;
+            overflow:hidden;
+            border:1px solid rgba(255,255,255,0.8);
+            position:relative;
+        }
+        .hero::before{
+            content:'';position:absolute;top:-50%;right:-50%;width:400px;height:400px;
+            background:radial-gradient(circle,rgba(99,102,241,0.1),transparent);
+            border-radius:50%;
+        }
+        .hero-left{flex:1;min-width:260px;position:relative;z-index:1}
+        .tag{
+            display:inline-block;background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(236,72,153,0.15));
+            padding:8px 14px;border-radius:999px;color:var(--accent);
+            font-weight:600;margin-bottom:16px;font-size:13px;
+            border:1px solid rgba(99,102,241,0.3);
+        }
+        .hero h2{margin:0 0 14px 0;font-size:32px;line-height:1.2;font-family:'Poppins',sans-serif;background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero p{color:var(--muted);margin:0 0 18px;font-size:16px;line-height:1.7}
+        .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+        .btn{
+            padding:11px 18px;border-radius:12px;border:0;cursor:pointer;font-weight:600;font-size:14px;
+            background:rgba(99,102,241,0.1);color:var(--accent);transition:all .3s ease;
+            border:1px solid rgba(99,102,241,0.2);
+        }
+        .btn:hover{background:rgba(99,102,241,0.15);transform:translateY(-2px);box-shadow:0 6px 16px rgba(99,102,241,0.15)}
+        .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:white;border:none;box-shadow:0 8px 24px rgba(99,102,241,0.3)}
+        .btn.primary:hover{box-shadow:0 12px 32px rgba(99,102,241,0.4)}
+        .hero-right{
+            width:320px;border-radius:16px;background:linear-gradient(135deg,rgba(236,72,153,0.1),rgba(245,158,11,0.1));
+            display:flex;align-items:center;justify-content:center;flex-direction:column;padding:24px;
+            box-shadow: inset 0 -20px 40px rgba(99,102,241,0.05);
+            border:1px solid rgba(255,255,255,0.6);
+        }
+        .stats{display:flex;gap:16px;width:100%;justify-content:space-around;color:var(--muted);font-size:14px}
+        .stats>div{text-align:center}
+        .stats strong{font-size:18px;color:var(--accent);display:block}
+        /* Marketplace */
+        .section{margin:24px 0;padding:24px;border-radius:16px;background:rgba(255,255,255,0.7);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,0.8)}
+        .section h3{margin:0 0 14px;font-size:22px;font-family:'Poppins',sans-serif;color:var(--accent)}
+        .controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+        .search{
+            flex:1;min-width:160px;
+            display:flex;gap:10px;align-items:center;background:rgba(99,102,241,0.08);padding:10px;border-radius:12px;
+            border:1px solid rgba(99,102,241,0.2);transition:all .3s ease;
+        }
+        .search:focus-within{
+            background:rgba(99,102,241,0.12);
+            border-color:var(--accent);
+            transform:scale(1.02);
+            transition:all 0.3s ease;
+        }
+        .search input{flex:1;background:transparent;border:0;color:inherit;outline:none;padding:6px;font-size:14px}
+        .filters{display:flex;gap:8px;flex-wrap:wrap}
+        .chip{background:rgba(99,102,241,0.1);padding:8px 12px;border-radius:999px;color:var(--accent);cursor:pointer;font-size:13px;border:1px solid rgba(99,102,241,0.2);transition:all .3s ease}
+        .chip:hover{
+            background:var(--accent);
+            color:white;
+            transform:translateY(-2px) scale(1.05);
+            box-shadow:0 4px 12px rgba(99,102,241,0.3);
+            transition:all 0.3s ease;
+        }
+        .grid{
+            display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;
+        }
+        .card{
+            background:linear-gradient(135deg,rgba(255,255,255,0.9),rgba(99,102,241,0.03));
+            border-radius:14px;padding:14px;position:relative;overflow:hidden;
+            transition:all .3s ease;
+            border:1px solid rgba(99,102,241,0.15);
+        }
+        .card:hover{
+            transform:translateY(-8px) scale(1.02);
+            box-shadow:0 16px 40px rgba(99,102,241,0.15);
+            border-color:var(--accent);
+            transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .thumb{
+            height:120px;
+            border-radius:10px;
+            background:linear-gradient(135deg,var(--accent),var(--accent-2));
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:700;
+            color:white;
+            font-size:18px;
+            box-shadow:0 8px 20px rgba(99,102,241,0.2);
+            position:relative;
+            overflow:hidden;
+        }
+        .thumb::before{
+            content:'';
+            position:absolute;
+            top:-50%;
+            left:-50%;
+            width:200%;
+            height:200%;
+            background:linear-gradient(45deg,transparent,rgba(255,255,255,0.1),transparent);
+            transform:rotate(45deg);
+            animation:shimmerSlide 3s infinite;
+        }
+        @keyframes shimmerSlide{
+            0%{transform:translateX(-100%) translateY(-100%) rotate(45deg)}
+            100%{transform:translateX(100%) translateY(100%) rotate(45deg)}
+        }
+        .card h4{margin:10px 0 6px;color:var(--accent);font-family:'Poppins',sans-serif}
+        .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px}
+        .price{font-weight:700;color:var(--accent-2)}
+        .card .actions{display:flex;gap:8px;margin-top:10px}
+        .small{font-size:12px;padding:7px 10px;border-radius:8px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);color:var(--accent);cursor:pointer;transition:all .3s ease;font-weight:600}
+        .small:hover{background:var(--accent);color:white}
+        /* Modal */
+        .modal{
+            position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;
+            background:rgba(0,0,0,0.3);
+            z-index:1200;backdrop-filter:blur(4px);
+        }
+        .modal.open{
+            display:flex;
+            animation:fadeIn 0.3s ease-out;
+        }
+        .modal.open .dialog{
+            animation:scaleIn 0.3s ease-out;
+        }
+        .dialog{width:100%;max-width:900px;background:rgba(255,255,255,0.95);border-radius:16px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,0.15);overflow:auto;max-height:88vh;backdrop-filter:blur(10px)}
+        .dialog .grid-2{display:grid;grid-template-columns:1fr 320px;gap:20px}
+        .preview{border-radius:12px;overflow:hidden;background:linear-gradient(135deg,rgba(99,102,241,0.1),rgba(236,72,153,0.05));padding:16px;margin-bottom:12px;border:1px solid rgba(99,102,241,0.2)}
+        .close-btn{position:absolute;top:18px;right:18px;background:transparent;border:0;font-size:20px;color:var(--muted);cursor:pointer;transition:all .3s ease}
+        .close-btn:hover{color:var(--accent)}
+        /* Forms and profiles */
+        form{display:grid;gap:12px}
+        label{font-size:13px;color:var(--muted);font-weight:600}
+        input,textarea,select{
+            padding:11px;
+            border-radius:10px;
+            background:rgba(99,102,241,0.06);
+            border:1px solid rgba(99,102,241,0.2);
+            color:inherit;
+            outline:none;
+            transition:all .3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family:'Inter',sans-serif;
+        }
+        input:focus,textarea:focus,select:focus{
+            background:rgba(99,102,241,0.1);
+            border-color:var(--accent);
+            box-shadow:0 0 0 3px rgba(99,102,241,0.1);
+            transform:translateY(-2px);
+        }
+        textarea{min-height:120px;resize:vertical}
+        .profiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+        .profile{padding:14px;border-radius:14px;background:linear-gradient(135deg,rgba(255,255,255,0.8),rgba(99,102,241,0.05));border:1px solid rgba(99,102,241,0.15);transition:all .3s ease}
+        .profile:hover{
+            border-color:var(--accent);
+            box-shadow:0 8px 24px rgba(99,102,241,0.15);
+            transform:translateY(-4px) scale(1.02);
+            transition:all 0.3s ease;
+        }
+        .avatar{width:60px;height:60px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:16px;box-shadow:0 6px 18px rgba(99,102,241,0.25)}
+        footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;align-items:center;padding:16px;background:rgba(255,255,255,0.5);border-radius:12px}
+        .muted{color:var(--muted)}
+        /* Animations */
+        @keyframes slideDown{
+            from{opacity:0;transform:translateY(-20px)}
+            to{opacity:1;transform:translateY(0)}
+        }
+        @keyframes fadeIn{
+            from{opacity:0;transform:translateY(10px)}
+            to{opacity:1;transform:translateY(0)}
+        }
+        @keyframes scaleIn{
+            from{opacity:0;transform:scale(0.9)}
+            to{opacity:1;transform:scale(1)}
+        }
+        @keyframes float{
+            0%,100%{transform:translateY(0)}
+            50%{transform:translateY(-10px)}
+        }
+        @keyframes pulse{
+            0%,100%{opacity:1}
+            50%{opacity:0.7}
+        }
+        @keyframes shimmer{
+            0%{background-position:-1000px 0}
+            100%{background-position:1000px 0}
+        }
+        .hidden{display:none}
+        .fade-in{opacity:0;transform:translateY(10px);animation:fadeIn .6s forwards}
+        .card{animation:scaleIn 0.4s ease-out backwards}
+        .card:nth-child(1){animation-delay:0.1s}
+        .card:nth-child(2){animation-delay:0.2s}
+        .card:nth-child(3){animation-delay:0.3s}
+        .card:nth-child(4){animation-delay:0.4s}
+        .card:nth-child(5){animation-delay:0.5s}
+        .card:nth-child(6){animation-delay:0.6s}
+        .badge{font-size:12px;padding:6px 10px;border-radius:8px;background:rgba(99,102,241,0.1);color:var(--accent);font-weight:600;border:1px solid rgba(99,102,241,0.2);animation:float 3s ease-in-out infinite}
+        .logo{animation:scaleIn 0.5s ease-out}
+        .btn{position:relative;overflow:hidden}
+        .btn::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;background:rgba(255,255,255,0.3);transform:translate(-50%,-50%);transition:width 0.6s,height 0.6s}
+        .btn:hover::before{width:300px;height:300px}
+        .btn.primary{animation:pulse 2s ease-in-out infinite}
+        .btn.primary:hover{animation:none}
+        
+        /* Responsive - Mobile First */
+        @media (max-width:768px){
+            body{padding:12px}
+            .container{padding:0 8px}
+            header{
+                flex-direction:column;
+                gap:12px;
+                padding:12px 16px;
+                margin-bottom:16px;
+            }
+            nav{
+                flex-direction:row;
+                flex-wrap:wrap;
+                width:100%;
+                gap:6px;
+                justify-content:center;
+            }
+            nav a{font-size:12px;padding:6px 10px}
+            .hero{
+                flex-direction:column;
+                align-items:flex-start;
+                padding:24px 20px;
+                margin-bottom:20px;
+            }
+            .hero-right{width:100%;margin-top:16px}
+            .hero h2{font-size:24px}
+            .section{
+                padding:16px;
+                margin:16px 0;
+            }
+            .section h3{font-size:18px}
+            .controls{
+                flex-direction:column;
+                gap:10px;
+            }
+            .search{min-width:100%}
+            .filters{width:100%;justify-content:flex-start}
+            .grid{grid-template-columns:1fr;gap:12px}
+            .dialog .grid-2{grid-template-columns:1fr}
+            #sell > div{grid-template-columns:1fr !important}
+            #sell > div > div:last-child{margin-top:16px}
+            footer{
+                flex-direction:column;
+                gap:8px;
+                text-align:center;
+                padding:12px;
+            }
+        }
+        @media (min-width:769px) and (max-width:1024px){
+            body{padding:20px}
+            .container{padding:0 16px}
+            .grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+        }
+        @media (min-width:1025px){
+            body{padding:24px}
+            .container{padding:0 20px}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a class="brand" href="#home" onclick="scrollToSection('home')">
+                <div class="logo">✨</div>
+                <div>
+                    <h1>TSE</h1>
+                    <div class="muted" style="font-size:12px">Tech Student Enterprise</div>
+                </div>
+            </a>
+            <nav>
+                <a href="#projects" onclick="scrollToSection('projects')">Marketplace</a>
+                <a href="#sell" onclick="scrollToSection('sell')">Sell Project</a>
+                <a href="#intern" onclick="scrollToSection('intern')">Apply Intern</a>
+                <a href="#creators" onclick="scrollToSection('creators')">Creators</a>
+                <a href="#about" onclick="scrollToSection('about')">About</a>
+                <a class="cta" href="#contact" onclick="scrollToSection('contact')">Contact</a>
+                <a href="#" onclick="openOwnerLogin()" title="Owner login">Owner</a>
+            </nav>
+        </header>
+
+        <section id="home" class="hero fade-in">
+            <div class="hero-left">
+                <div class="tag">🚀 Empowering Student Talent</div>
+                <h2>Turn Your Ideas Into Reality</h2>
+                <p>Showcase, promote and sell student & intern-created projects from Unnao, Uttar Pradesh and beyond. Discover creative works, hire interns, and support young creators.</p>
+                <div class="actions">
+                    <button class="btn primary" onclick="scrollToSection('projects')">Browse Projects</button>
+                    <button class="btn" onclick="scrollToSection('sell')">Sell Your Project</button>
+                    <button class="btn" onclick="scrollToSection('intern')">Apply as Intern</button>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div style="font-size:14px;color:var(--muted);margin-bottom:12px;font-weight:600">📊 Featured Highlights</div>
+                <div class="stats">
+                    <div><strong>120+</strong>Projects</div>
+                    <div><strong>85</strong>Creators</div>
+                    <div><strong>34K</strong>Views</div>
+                </div>
+                <div style="margin-top:14px;width:100%">
+                    <div class="badge">📍 Unnao, Uttar Pradesh</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marketplace -->
+        <section id="projects" class="section fade-in">
+            <h3>🛍️ Project Marketplace</h3>
+            <div class="controls">
+                <div class="search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6366f1"><path d="M21 21l-4.35-4.35"></path><circle cx="11" cy="11" r="6"></circle></svg>
+                    <input id="search" placeholder="Search projects, tools or creators" oninput="renderProjects()" />
+                </div>
+                <div class="filters" id="categoryFilters">
+                    <!-- chips added by JS -->
+                </div>
+                <div style="margin-left:auto;display:flex;gap:8px;">
+                    <div class="chip" onclick="openCart()">🛒 Cart (<span id="cartCount">0</span>)</div>
+                    <div id="adminChipContainer"></div>
+                </div>
+            </div>
+
+            <div class="grid" id="projectsGrid">
+                <!-- projects rendered by JS -->
+            </div>
+        </section>
+
+        <!-- Sell Project -->
+        <section id="sell" class="section fade-in">
+            <h3>💼 Sell Your Project</h3>
+            <p class="muted">Upload a project, set a price, and start earning. Revenue sharing calculates automatically.</p>
+            <div style="display:grid;grid-template-columns:1fr 320px;gap:20px">
+                <form id="sellForm" onsubmit="submitProject(event)">
+                    <label>Project Title</label>
+                    <input id="pTitle" placeholder="Enter project name" required />
+                    <label>Category</label>
+                    <select id="pCategory">
+                        <option>Web Development</option><option>Apps</option><option>Design</option><option>UI/UX</option>
+                        <option>Graphics</option><option>Branding</option><option>Engineering</option><option>Creativity</option>
+                    </select>
+                    <label>Description</label>
+                    <textarea id="pDescription" placeholder="Describe your project in detail" required></textarea>
+                    <label>Technologies / Tools (comma separated)</label>
+                    <input id="pTools" placeholder="HTML, CSS, JS" />
+                    <label>Price (INR)</label>
+                    <input id="pPrice" type="number" min="0" placeholder="999" required oninput="calculateRevenueShare()" />
+                    <label>Preview image (optional)</label>
+                    <input id="pImage" type="file" accept="image/*" />
+                    <div style="display:flex;gap:8px;align-items:center">
+                        <button class="btn primary" type="submit">Upload & Submit</button>
+                        <button class="btn" type="button" onclick="clearSellForm()">Reset</button>
+                    </div>
+                </form>
+                <div style="display:flex;flex-direction:column;gap:12px;min-width:280px;align-self:flex-start">
+                    <!-- Owner Status - Only visible when logged in, completely hidden from public -->
+                    <div id="ownerStatus" style="display:none;padding:14px;border-radius:12px;background:linear-gradient(135deg,rgba(99,102,241,0.06),rgba(236,72,153,0.03));border:1px solid rgba(99,102,241,0.12)">
+                        <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px">
+                            <h4 style="margin:0;color:var(--accent)">👤 Owner Profile</h4>
+                            <button class="small" onclick="openOwnerProfile()" title="Edit Profile">✏️ Edit</button>
+                        </div>
+                        <div id="ownerProfileDisplay">
+                            <div style="margin-bottom:8px">
+                                <div style="font-weight:700;color:var(--accent);font-size:16px" id="ownerNameLabel">Owner</div>
+                                <div style="font-size:13px;color:var(--muted)" id="ownerEmailLabel"></div>
+                                <div class="muted" style="font-size:12px;margin-top:4px" id="ownerPhoneLabel"></div>
+                            </div>
+                            <div id="ownerBioDisplay" style="font-size:13px;color:var(--muted);margin:8px 0;line-height:1.5"></div>
+                            <div id="ownerSkillsDisplay" style="margin:8px 0"></div>
+                            <div id="ownerLinksDisplay" style="margin:8px 0;display:flex;gap:6px;flex-wrap:wrap"></div>
+                        </div>
+                        <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(99,102,241,0.1);display:flex;flex-direction:column;gap:6px">
+                            <button class="small" onclick="quickPublishAll()">One‑Click Publish All</button>
+                            <button class="small" onclick="openAdmin()">Open Admin</button>
+                            <button class="small" onclick="openInternalAccess()">🔐 Internal Access</button>
+                            <button class="small" onclick="openOwnerProfile()">View Full Profile</button>
+                        </div>
+                    </div>
+
+                    <div style="padding:12px;border-radius:12px;background:linear-gradient(135deg,rgba(245,158,11,0.03),rgba(99,102,241,0.02));border:1px solid rgba(99,102,241,0.08)">
+                        <h4 style="margin:0 0 8px;color:var(--accent)">🎨 Demos & Quick Preview</h4>
+                        <div id="previewList" style="display:flex;flex-direction:column;gap:10px;max-height:320px;overflow:auto;padding-right:6px"></div>
+                        <div style="margin-top:10px;display:flex;gap:8px">
+                            <button class="btn" onclick="showAllDemos()" title="Animate & preview all">Preview All</button>
+                            <button class="btn" onclick="renderProjects()" title="Refresh projects">Refresh</button>
+                        </div>
+                    </div>
+
+                    <style>
+                        /* small creative micro-animations for preview items */
+                        .preview-item{display:flex;align-items:center;gap:10px;padding:8px;border-radius:10px;background:linear-gradient(135deg,rgba(255,255,255,0.85),rgba(99,102,241,0.02));border:1px solid rgba(99,102,241,0.08);transition:transform .28s ease,box-shadow .28s ease}
+                        .preview-item:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(99,102,241,0.06)}
+                        .preview-thumb{width:52px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+                        .sparkle{animation:floatY 3s ease-in-out infinite}
+                        @keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+        @keyframes shimmer{
+            0%{transform:translateX(-100%) translateY(-100%) rotate(45deg)}
+            100%{transform:translateX(100%) translateY(100%) rotate(45deg)}
+        }
+                    </style>
+
+                    <script>
+                        // Owner credentials & auth (client-side, stored locally)
+                        // Note: These functions are used by the modal login form
+                        function setOwnerCredentials(e){
+                            e && e.preventDefault();
+                            // This function is called from modal, elements may not exist in inline form
+                            const emailEl = document.getElementById('ownerEmailSet');
+                            const passEl = document.getElementById('ownerPassSet');
+                            const phoneEl = document.getElementById('ownerPhoneSet');
+                            if(!emailEl || !passEl) return; // Elements don't exist, skip
+                            const email = emailEl.value.trim();
+                            const pass = passEl.value;
+                            const phone = phoneEl ? phoneEl.value.trim() : '';
+                            if(!email||!pass){ alert('Please provide email and password'); return; }
+                            localStorage.setItem('tse_owner', JSON.stringify({email,pass,phone}));
+                            alert('✅ Owner credentials saved locally. Now use Login to authenticate.');
+                            const form = document.getElementById('ownerSetForm');
+                            if(form) form.reset();
+                            ownerStatusUpdate();
+                        }
+                        function ownerAuthenticate(e){
+                            e && e.preventDefault();
+                            // This function is called from modal, elements may not exist in inline form
+                            const emailEl = document.getElementById('ownerEmail');
+                            const passEl = document.getElementById('ownerPass');
+                            if(!emailEl || !passEl) return; // Elements don't exist, skip
+                            const email = emailEl.value.trim();
+                            const pass = passEl.value;
+                            const owner = JSON.parse(localStorage.getItem('tse_owner') || '{}');
+                            if(owner.email===email && owner.pass===pass){
+                                localStorage.setItem('tse_logged_in','1');
+                                alert('✅ Logged in as owner');
+                                ownerStatusUpdate();
+                                const form = document.getElementById('ownerLoginForm');
+                                if(form) form.reset();
+                            } else {
+                                alert('❌ Invalid owner credentials');
+                            }
+                        }
+                        function ownerLogout(){
+                            localStorage.removeItem('tse_logged_in');
+                            alert('Logged out');
+                            ownerStatusUpdate();
+                        }
+        function ownerStatusUpdate(){
+            const owner = JSON.parse(localStorage.getItem('tse_owner') || '{}');
+            const logged = !!localStorage.getItem('tse_logged_in');
+            const ownerStatusEl = document.getElementById('ownerStatus');
+            if(ownerStatusEl){
+                // Only show owner status when logged in - completely hidden from public
+                ownerStatusEl.style.display = logged ? 'block' : 'none';
+                if(logged){
+                    updateAdminButton();
+                    const nameLabel = document.getElementById('ownerNameLabel');
+                    const emailLabel = document.getElementById('ownerEmailLabel');
+                    const phoneLabel = document.getElementById('ownerPhoneLabel');
+                    const bioDisplay = document.getElementById('ownerBioDisplay');
+                    const skillsDisplay = document.getElementById('ownerSkillsDisplay');
+                    const linksDisplay = document.getElementById('ownerLinksDisplay');
+                    
+                    // Never show password or sensitive data
+                    if(nameLabel) nameLabel.textContent = owner.name || 'Owner';
+                    if(emailLabel) emailLabel.textContent = owner.email ? owner.email.replace(/(.{2})(.*)(@.*)/, '$1***$3') : '***@***'; // Mask email
+                    if(phoneLabel) phoneLabel.textContent = owner.phone ? '📞 ' + owner.phone.replace(/(\d{2})(\d+)(\d{2})/, '$1***$3') : ''; // Mask phone
+                    if(bioDisplay) bioDisplay.textContent = owner.bio || 'No bio added yet. Click Edit to add your profile information.';
+                    if(skillsDisplay){
+                        if(owner.skills && owner.skills.length > 0){
+                            skillsDisplay.innerHTML = '<div style="font-size:12px;font-weight:600;margin-bottom:4px">Skills:</div><div style="display:flex;gap:4px;flex-wrap:wrap">' + 
+                                owner.skills.map(s => `<span style="background:rgba(99,102,241,0.1);padding:4px 8px;border-radius:6px;font-size:11px">${s}</span>`).join('') + '</div>';
+                        } else {
+                            skillsDisplay.innerHTML = '';
+                        }
+                    }
+                    if(linksDisplay){
+                        let links = [];
+                        if(owner.portfolio) links.push(`<a href="${owner.portfolio}" target="_blank" style="font-size:11px;padding:4px 8px;background:rgba(99,102,241,0.1);border-radius:6px;text-decoration:none;color:var(--accent)">🌐 Portfolio</a>`);
+                        if(owner.linkedin) links.push(`<a href="${owner.linkedin}" target="_blank" style="font-size:11px;padding:4px 8px;background:rgba(99,102,241,0.1);border-radius:6px;text-decoration:none;color:var(--accent)">💼 LinkedIn</a>`);
+                        if(owner.github) links.push(`<a href="${owner.github}" target="_blank" style="font-size:11px;padding:4px 8px;background:rgba(99,102,241,0.1);border-radius:6px;text-decoration:none;color:var(--accent)">💻 GitHub</a>`);
+                        if(owner.website) links.push(`<a href="${owner.website}" target="_blank" style="font-size:11px;padding:4px 8px;background:rgba(99,102,241,0.1);border-radius:6px;text-decoration:none;color:var(--accent)">🔗 Website</a>`);
+                        linksDisplay.innerHTML = links.length > 0 ? links.join('') : '';
+                    }
+                }
+            }
+        }
+
+        // Open owner profile editor
+        function openOwnerProfile(){
+            if(!localStorage.getItem('tse_logged_in')){
+                alert('⚠️ Owner access required. Please login first.');
+                openOwnerLogin();
+                return;
+            }
+            const owner = JSON.parse(localStorage.getItem('tse_owner') || '{}');
+            const html = `<h3 style="margin-top:0;color:var(--accent)">👤 Owner Profile (Private)</h3>
+                <div style="background:rgba(99,102,241,0.1);padding:12px;border-radius:10px;margin-bottom:16px;font-size:13px">
+                    <div style="font-weight:600;color:var(--accent);margin-bottom:4px">🔒 Private Information</div>
+                    <div class="muted">This information is only visible to you when logged in.</div>
+                </div>
+                <form id="ownerProfileForm" onsubmit="saveOwnerProfile(event)" style="display:grid;gap:12px">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                        <div>
+                            <label>Full Name</label>
+                            <input id="ownerProfileName" value="${owner.name || ''}" placeholder="Your full name" />
+                        </div>
+                        <div>
+                            <label>Email</label>
+                            <input id="ownerProfileEmail" type="email" value="${owner.email || 'yourname@gmail.com'}" placeholder="yourname@gmail.com" required />
+                        </div>
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                        <div>
+                            <label>Phone</label>
+                            <input id="ownerProfilePhone" type="tel" value="${owner.phone || ''}" placeholder="+91 XXXXX XXXXX" />
+                        </div>
+                        <div>
+                            <label>Password (Hidden)</label>
+                            <input id="ownerProfilePass" type="password" value="${owner.pass || 'TSE@2024'}" placeholder="Enter new password" required autocomplete="new-password" />
+                            <div style="font-size:11px;color:var(--muted);margin-top:4px">⚠️ Password is encrypted and never shown publicly</div>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Bio / About Me</label>
+                        <textarea id="ownerProfileBio" placeholder="Tell us about yourself, your experience, and what you do..." style="min-height:100px">${owner.bio || ''}</textarea>
+                    </div>
+                    <div>
+                        <label>Skills (comma separated)</label>
+                        <input id="ownerProfileSkills" value="${Array.isArray(owner.skills) ? owner.skills.join(', ') : (owner.skills || '')}" placeholder="e.g. Web Development, Design, Marketing" />
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                        <div>
+                            <label>Portfolio URL</label>
+                            <input id="ownerProfilePortfolio" type="url" value="${owner.portfolio || ''}" placeholder="https://yourportfolio.com" />
+                        </div>
+                        <div>
+                            <label>LinkedIn URL</label>
+                            <input id="ownerProfileLinkedin" type="url" value="${owner.linkedin || ''}" placeholder="https://linkedin.com/in/yourname" />
+                        </div>
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                        <div>
+                            <label>GitHub URL</label>
+                            <input id="ownerProfileGithub" type="url" value="${owner.github || ''}" placeholder="https://github.com/yourname" />
+                        </div>
+                        <div>
+                            <label>Website URL</label>
+                            <input id="ownerProfileWebsite" type="url" value="${owner.website || ''}" placeholder="https://yourwebsite.com" />
+                        </div>
+                    </div>
+                    <div>
+                        <label>Upload CV/Resume (PDF)</label>
+                        <input id="ownerProfileCV" type="file" accept=".pdf,.doc,.docx" />
+                        ${owner.cv ? '<div style="font-size:12px;color:var(--success);margin-top:4px">✓ CV already uploaded</div>' : ''}
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:8px">
+                        <button class="btn primary" type="submit">💾 Save Profile</button>
+                        <button class="btn" type="button" onclick="closeModal()">Cancel</button>
+                    </div>
+                </form>`;
+            showModal(html);
+        }
+
+        async function saveOwnerProfile(e){
+            e.preventDefault();
+            const owner = JSON.parse(localStorage.getItem('tse_owner') || '{}');
+            const name = document.getElementById('ownerProfileName').value.trim();
+            const email = document.getElementById('ownerProfileEmail').value.trim();
+            const phone = document.getElementById('ownerProfilePhone').value.trim();
+            const pass = document.getElementById('ownerProfilePass').value;
+            const bio = document.getElementById('ownerProfileBio').value.trim();
+            const skillsStr = document.getElementById('ownerProfileSkills').value.trim();
+            const portfolio = document.getElementById('ownerProfilePortfolio').value.trim();
+            const linkedin = document.getElementById('ownerProfileLinkedin').value.trim();
+            const github = document.getElementById('ownerProfileGithub').value.trim();
+            const website = document.getElementById('ownerProfileWebsite').value.trim();
+            const cvInput = document.getElementById('ownerProfileCV');
+            
+            let cvData = owner.cv || null;
+            if(cvInput.files && cvInput.files[0]){
+                cvData = await readFileAsDataURL(cvInput.files[0]);
+            }
+            
+            const skills = skillsStr ? skillsStr.split(',').map(s => s.trim()).filter(s => s) : [];
+            
+            const updatedOwner = {
+                email: email || 'yourname@gmail.com',
+                pass: pass || 'TSE@2024',
+                phone,
+                name: name || email || 'Owner',
+                bio,
+                skills,
+                portfolio,
+                linkedin,
+                github,
+                website,
+                cv: cvData
+            };
+            
+            localStorage.setItem('tse_owner', JSON.stringify(updatedOwner));
+            alert('✅ Profile saved successfully!');
+            ownerStatusUpdate();
+            closeModal();
+        }
+
+                        // One-click publish: approve all pending submissions in queue
+                        function quickPublishAll(){
+                            if(!localStorage.getItem('tse_logged_in')){ alert('You must be logged in as owner to publish.'); return; }
+                            const queue = JSON.parse(localStorage.getItem('tse_admin_queue') || '[]');
+                            if(queue.length===0){ alert('No pending submissions.'); return; }
+                            let projects = JSON.parse(localStorage.getItem('tse_projects') || '[]');
+                            projects = projects.map(p => queue.includes(p.id) ? Object.assign({},p,{pending:false}) : p);
+                            localStorage.setItem('tse_projects', JSON.stringify(projects));
+                            localStorage.setItem('tse_admin_queue', JSON.stringify([]));
+                            renderProjects();
+                            renderAdminData && renderAdminData();
+                            showPreviewList();
+                            alert('✅ All pending submissions published.');
+                        }
+
+                        // Build preview list in sidebar
+                        function showPreviewList(){
+                            const list = document.getElementById('previewList');
+                            const data = JSON.parse(localStorage.getItem('tse_projects') || '[]');
+                            list.innerHTML = '';
+                            if(!data.length){ list.innerHTML = '<div class="muted">No demos available.</div>'; return; }
+                            data.slice().reverse().forEach(p=>{
+                                const div = document.createElement('div');
+                                div.className='preview-item sparkle';
+                                div.innerHTML = `<div class="preview-thumb">${(p.title||'').split(' ').map(s=>s[0]).slice(0,2).join('')}</div>
+                                    <div style="flex:1">
+                                        <div style="font-weight:700;color:var(--accent)">${p.title}${p.pending? ' • <span class="muted" style="font-weight:600;font-size:12px">Pending</span>':''}</div>
+                                        <div class="muted" style="font-size:12px">${p.category} • ₹${p.price}</div>
+                                    </div>
+                                    <div style="display:flex;gap:6px">
+                                        <button class="small" onclick="openProject(${p.id})">Preview</button>
+                                        <button class="small" onclick="addToCart(${p.id})">Buy</button>
+                                        <button class="small" onclick="openHireForProject(${p.id})" title="Hire creator/intern">Hire</button>
+                                    </div>`;
+                                list.appendChild(div);
+                            });
+                        }
+
+                        // Hire flow: contact creator / save hire intent
+                        function openHireForProject(projectId){
+                            const projects = JSON.parse(localStorage.getItem('tse_projects') || '[]');
+                            const p = projects.find(x=>x.id===projectId);
+                            if(!p) return alert('Project not found');
+                            const owner = JSON.parse(localStorage.getItem('tse_owner') || '{}');
+                            const html = `<h3 style="margin-top:0;color:var(--accent)">🤝 Hire for "${p.title}"</h3>
+                                <div style="margin:8px 0" class="muted">This will send a hire request to the creator (saved locally).</div>
+                                <label style="display:block;margin-top:8px">Your message</label>
+                                <textarea id="hireMsg" placeholder="I want to hire..."></textarea>
+                                <div style="display:flex;gap:8px;margin-top:12px">
+                                    <button class="btn primary" onclick="confirmHire(${projectId})">Send Hire Request</button>
+                                    <button class="btn" onclick="closeModal()">Cancel</button>
+                                </div>`;
+                            showModal(html);
+                            // prefill message
+                            setTimeout(()=>{ document.getElementById('hireMsg') && (document.getElementById('hireMsg').value = `Hello, I'm ${owner.email||'a client'} interested in your project "${p.title}". Please contact me.`); },100);
+                        }
+                        function confirmHire(projectId){
+                            const msg = document.getElementById('hireMsg').value || '';
+                            const hires = JSON.parse(localStorage.getItem('tse_hires') || '[]');
+                            hires.push({projectId, message: msg, date: new Date().toISOString()});
+                            localStorage.setItem('tse_hires', JSON.stringify(hires));
+                            closeModal();
+                            alert('✅ Hire request saved locally. Creator will be notified when integrated with backend.');
+                        }
+
+                        // Expert marketplace: filter projects flagged as expert (price>1500 considered expert demo here)
+                        function openExpertMarketplace(){
+                            const data = JSON.parse(localStorage.getItem('tse_projects') || '[]').filter(p=>p.price>1500);
+                            if(!data.length) return showModal('<div style="padding:20px;text-align:center" class="muted">No expert projects currently available.</div>');
+                            let html = '<h3 style="margin-top:0;color:var(--accent)">🏅 Expert Projects</h3><div>';
+                            data.forEach(p=> html += `<div style="display:flex;justify-content:space-between;padding:10px;border-bottom:1px solid rgba(99,102,241,0.06)"><div><strong>${p.title}</strong><div class="muted" style="font-size:13px">${p.category} • ₹${p.price}</div></div><div style="display:flex;gap:8px"><button class="small" onclick="openProject(${p.id})">Preview</button><button class="small" onclick="addToCart(${p.id})">Buy</button></div></div>`);
+                            html += '</div>';
+                            showModal(html);
+                        }
+
+                        // small helper to animate preview all: sequentially open previews (non-blocking)
+                        function showAllDemos(){
+                            const ids = JSON.parse(localStorage.getItem('tse_projects') || '[]').map(p=>p.id);
+                            if(!ids.length) return alert('No demos found');
+                            let i=0;
+                            const timer = setInterval(()=>{ openProject(ids[i]); i++; if(i>=ids.length){ clearInterval(timer); } }, 700);
+                        }
+
+                        // bootstrap sidebar UI
+                        (function(){ ownerStatusUpdate(); showPreviewList(); window.showPreviewList = showPreviewList; window.quickPublishAll = quickPublishAll; })();
+                    </script>
+
+                    <div style="background:linear-gradient(135deg,rgba(99,102,241,0.1),rgba(236,72,153,0.08));padding:16px;border-radius:12px;border:1px solid rgba(99,102,241,0.2)">
+                        <h4 style="margin-top:0;color:var(--accent)">💰 Revenue Sharing</h4>
+                        <p class="muted" style="font-size:13px">Platform fee default: 15%</p>
+                        <div style="display:flex;justify-content:space-between;margin:10px 0;padding-bottom:8px;border-bottom:1px solid rgba(99,102,241,0.1)">
+                            <div class="muted">Price:</div><div id="revPrice" style="font-weight:700;color:var(--accent-2)">₹0</div>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;margin:10px 0;padding-bottom:8px;border-bottom:1px solid rgba(99,102,241,0.1)">
+                            <div class="muted">Platform Fee:</div><div id="revFee" style="font-weight:700;color:var(--danger)">₹0</div>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;margin:10px 0;font-weight:700;color:var(--success)">
+                            <div>You Receive:</div><div id="revShare">₹0</div>
+                        </div>
+                        <p class="muted" style="font-size:12px;margin-top:8px">After approval, your project appears in the marketplace.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intern Application -->
+        <section id="intern" class="section fade-in">
+            <h3>👨‍💼 Apply as Intern</h3>
+            <p class="muted">Join TSE as an intern. Fill out your details and attach portfolio/CV.</p>
+            <form id="internForm" onsubmit="applyIntern(event)">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                    <div>
+                        <label>Name</label><input id="iName" placeholder="Your name" required/>
+                    </div>
+                    <div>
+                        <label>Email</label><input id="iEmail" type="email" placeholder="your@email.com" required/>
+                    </div>
+                    <div>
+                        <label>Contact</label><input id="iContact" type="tel" placeholder="+91 XXXXX XXXXX" required/>
+                    </div>
+                    <div>
+                        <label>Skills</label><input id="iSkills" placeholder="e.g. React, Figma, CAD"/>
+                    </div>
+                </div>
+                <label>Portfolio Link</label><input id="iPortfolio" placeholder="https://your-portfolio.com"/>
+                <label>Upload CV</label><input id="iCV" type="file" accept=".pdf,.doc,.docx" />
+                <div style="display:flex;gap:8px;margin-top:12px">
+                    <button class="btn primary" type="submit">Submit Application</button>
+                    <button class="btn" type="button" onclick="clearInternForm()">Reset</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Creators -->
+        <section id="creators" class="section fade-in">
+            <h3>⭐ Creator Profiles</h3>
+            <p class="muted">Discover talented students and interns. View bios, portfolios and ratings.</p>
+            <div class="profiles" id="profilesGrid">
+                <!-- sample profiles rendered by JS -->
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="section fade-in">
+            <h3>ℹ️ About TSE</h3>
+            <p><strong>Name:</strong> TSE (Tech Student Enterprise)</p>
+            <p><strong>Location:</strong> Unnao, Uttar Pradesh</p>
+            <p><strong>Mission:</strong> To empower students by turning their projects into real market opportunities.</p>
+            <p class="muted">We highlight success stories, mentor students, and connect creators with buyers and industry partners. Supporting the next generation of innovators.</p>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section fade-in">
+            <h3>📞 Get In Touch</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+                <form id="contactForm" onsubmit="sendContact(event)">
+                    <label>Your Name</label><input id="cName" placeholder="Full name" required/>
+                    <label>Email</label><input id="cEmail" type="email" placeholder="your@email.com" />
+                    <label>Message</label><textarea id="cMessage" placeholder="Your message here..." required></textarea>
+                    <div style="display:flex;gap:8px;margin-top:12px">
+                        <button class="btn primary" type="submit">Send Message</button>
+                        <button class="btn" type="button" onclick="clearContactForm()">Reset</button>
+                        
+                    </div>
+                </form>
+                <div style="padding:16px;border-radius:12px;background:linear-gradient(135deg,rgba(99,102,241,0.1),rgba(245,158,11,0.08));border:1px solid rgba(99,102,241,0.2)">
+                    <h4 style="margin-top:0;color:var(--accent)">Company Details</h4>
+                    <p><strong>📞 Phone:</strong> 8960416293</p>
+                    <p><strong>📍 Location:</strong> Unnao, Uttar Pradesh</p>
+                    <p><strong>✉️ Email:</strong> contact@tse.example</p>
+                    <div style="margin-top:14px">
+                        <h5>Follow & Connect</h5>
+                        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+                            <div class="chip">𝕏 Twitter</div>
+                            <div class="chip">in LinkedIn</div>
+                            <div class="chip">📷 Instagram</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div><strong>© TSE</strong> — Empowering Student Talent • Unnao, UP</div>
+            <div class="muted">Built with 💙 for student innovation</div>
+        </footer>
+    </div>
+
+    <!-- Modal for project detail / cart / admin -->
+    <div id="modal" class="modal" onclick="closeModal(event)">
+        <div class="dialog" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeModal()">✕</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
+        /*
+         * GOOGLE SHEETS INTEGRATION SETUP:
+         * 
+         * 1. Open your Google Sheet: https://docs.google.com/spreadsheets/d/1DcQOD7TvMS5q8g_CEBA9LsPoTjMRVTCebPT-PMkt8TY/edit
+         * 2. Go to Extensions > Apps Script
+         * 3. Delete default code and paste the Google Apps Script code (shown in Internal Access > Sync to Sheets)
+         * 4. Click Deploy > New deployment > Web app
+         * 5. Set: Execute as "Me", Who has access "Anyone"
+         * 6. Click Deploy and copy the Web App URL
+         * 7. Replace GOOGLE_SCRIPT_URL below with your Web App URL
+         */
+        
+        const DEFAULT_FEE_PERCENT = 15;
+        let platformFee = DEFAULT_FEE_PERCENT;
+        let projects = [
+            {id:1,title:"Portfolio Website",category:"Web Development",desc:"Responsive portfolio built with HTML/CSS/JS",tools:"HTML,CSS,JS",price:1200,creatorId:1},
+            {id:2,title:"Todo App (React)",category:"Apps",desc:"React todo app with localStorage",tools:"React,JS",price:800,creatorId:2},
+            {id:3,title:"Branding Kit",category:"Branding",desc:"Logo and brand assets for startups",tools:"Illustrator,Photoshop",price:2500,creatorId:3},
+            {id:4,title:"E-commerce UI",category:"UI/UX",desc:"Design system and mockups in Figma",tools:"Figma",price:1500,creatorId:4},
+        ];
+        let creators = [
+            {id:1,name:"Aman Kumar",bio:"Frontend enthusiast from Unnao",skills:["HTML","CSS","JS"],rating:4.6,links:{}},
+            {id:2,name:"Priya Singh",bio:"React developer and UI designer",skills:["React","Figma"],rating:4.8,links:{}},
+            {id:3,name:"Rohit Verma",bio:"Visual designer specialising in branding",skills:["Illustrator","PS"],rating:4.7,links:{}},
+            {id:4,name:"Neha Sharma",bio:"Product designer focusing on UX",skills:["Figma","Sketch"],rating:4.5,links:{}}
+        ];
+        if(!localStorage.getItem('tse_projects')) localStorage.setItem('tse_projects', JSON.stringify(projects));
+        else projects = JSON.parse(localStorage.getItem('tse_projects'));
+        if(!localStorage.getItem('tse_creators')) localStorage.setItem('tse_creators', JSON.stringify(creators));
+        else creators = JSON.parse(localStorage.getItem('tse_creators'));
+        let cart = JSON.parse(localStorage.getItem('tse_cart') || '[]');
+        const categories = ["All","Web Development","Apps","Design","UI/UX","Graphics","Branding","Engineering","Creativity"];
+        function init(){
+            initDefaultOwner();
+            renderCategoryFilters();
+            renderProjects();
+            renderProfiles();
+            updateCartCount();
+            ownerStatusUpdate();
+            updateAdminButton();
+            document.querySelectorAll('.fade-in').forEach((el,i)=>el.style.animationDelay=(i*80)+'ms');
+        }
+        
+        // Update admin button visibility based on login status
+        function updateAdminButton(){
+            const container = document.getElementById('adminChipContainer');
+            if(!container) return;
+            const logged = !!localStorage.getItem('tse_logged_in');
+            if(logged){
+                container.innerHTML = '<div class="chip" onclick="openAdmin()">⚙️ Admin</div>';
+            } else {
+                container.innerHTML = '';
+            }
+        }
+        function renderCategoryFilters(){
+            const el = document.getElementById('categoryFilters');
+            el.innerHTML='';
+            categories.forEach(cat=>{
+                const btn = document.createElement('div');
+                btn.className='chip';btn.textContent=cat;
+                btn.onclick = ()=>{filterCategory = (cat==="All"?"":cat); renderProjects();}
+                el.appendChild(btn);
+            });
+        }
+        let filterCategory = "";
+        function renderProjects(){
+            const q = document.getElementById('search').value.toLowerCase();
+            const grid = document.getElementById('projectsGrid');
+            const data = JSON.parse(localStorage.getItem('tse_projects') || '[]');
+            const filtered = data.filter(p=>{
+                const matchesCategory = filterCategory ? p.category===filterCategory : true;
+                const matchesQuery = [p.title,p.desc,p.tools].join(' ').toLowerCase().includes(q);
+                return matchesCategory && matchesQuery;
+            });
+            grid.innerHTML='';
+            if(filtered.length===0){
+                grid.innerHTML = '<div class="muted">No projects found.</div>';
+                return;
+            }
+            filtered.forEach(p=>{
+                const card = document.createElement('div');card.className='card';
+                card.innerHTML = `
+                    <div class="thumb">${p.title.split(' ').map(s=>s[0]).slice(0,2).join('')}</div>
+                    <h4>${p.title}${p.pending? ' • <span class="muted" style="font-weight:600;font-size:12px">Pending</span>':''}</h4>
+                    <div class="meta"><div class="muted">${p.category}</div><div class="price">₹${p.price}</div></div>
+                    <div class="actions">
+                        <button class="small" onclick="openProject(${p.id})">View</button>
+                        <button class="small" onclick="addToCart(${p.id})">Add to Cart</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+        function openProject(id){
+            const p = JSON.parse(localStorage.getItem('tse_projects')).find(x=>x.id===id);
+            const creator = creators.find(c=>c.id===p.creatorId) || {name:"Unknown"};
+            const html = `
+                <div class="grid-2">
+                    <div>
+                        <div class="preview"><h3 style="margin:0;color:var(--accent)">${p.title}</h3><div class="muted">${p.desc}</div></div>
+                        <div style="margin:10px 0"><strong>🛠️ Tools:</strong> ${p.tools}</div>
+                        <div style="margin:10px 0"><strong>📁 Category:</strong> ${p.category}</div>
+                        <div style="margin:10px 0"><strong>👤 Creator:</strong> ${creator.name}</div>
+                    </div>
+                    <div>
+                        <div style="background:linear-gradient(135deg,var(--accent),var(--accent-2));padding:16px;border-radius:12px;text-align:center;color:white">
+                            <div style="font-size:24px;font-weight:700">₹${p.price}</div>
+                            <div style="font-size:13px;opacity:0.9">One-time purchase</div>
+                            <div style="margin-top:12px;display:flex;gap:8px;justify-content:center">
+                                <button class="btn primary" style="color:white;background:rgba(255,255,255,0.3);border:1px solid white" onclick="buyNow(${p.id})">Buy Now</button>
+                                <button class="btn" style="color:white;background:rgba(255,255,255,0.2);border:1px solid white" onclick="addToCart(${p.id})">Cart</button>
+                            </div>
+                        </div>
+                        <div style="margin-top:14px;font-size:13px;color:var(--muted);background:rgba(99,102,241,0.1);padding:12px;border-radius:10px">
+                            <div><strong>💵 Revenue split (${platformFee}%):</strong></div>
+                            <div style="display:flex;justify-content:space-between;margin-top:8px;padding-bottom:6px;border-bottom:1px solid rgba(99,102,241,0.1)"><div>Gross</div><div>₹${p.price}</div></div>
+                            <div style="display:flex;justify-content:space-between;margin:6px 0"><div>Platform Fee</div><div>₹${Math.round(p.price*platformFee/100)}</div></div>
+                            <div style="display:flex;justify-content:space-between;font-weight:700;margin-top:8px;color:var(--success)"><div>Creator Gets</div><div>₹${Math.round(p.price*(100-platformFee)/100)}</div></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            showModal(html);
+        }
+        function addToCart(id){
+            const cartData = JSON.parse(localStorage.getItem('tse_cart') || '[]');
+            if(cartData.includes(id)){
+                alert('⚠️ Item already in cart!');
+                return;
+            }
+            cartData.push(id);
+            localStorage.setItem('tse_cart', JSON.stringify(cartData));
+            updateCartCount();
+            alert('✅ Added to cart!');
+        }
+        function buyNow(id){
+            localStorage.setItem('tse_cart', JSON.stringify([id]));
+            checkout();
+        }
+        function updateCartCount(){
+            const c = JSON.parse(localStorage.getItem('tse_cart') || '[]').length;
+            document.getElementById('cartCount').textContent = c;
+        }
+        function openCart(){
+            const cartIds = JSON.parse(localStorage.getItem('tse_cart') || '[]');
+            if(cartIds.length===0){
+                showModal('<div class="muted" style="text-align:center;padding:20px">🛒 Your cart is empty.</div>');
+                return;
+            }
+            const data = JSON.parse(localStorage.getItem('tse_projects') || '[]');
+            let total=0;
+            let html = '<h3 style="margin-top:0;color:var(--accent)">🛒 Your Cart</h3><div>';
+            cartIds.forEach((id,idx)=>{
+                const p = data.find(x=>x.id===id);
+                if(!p) return;
+                total += p.price;
+                html += `<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(99,102,241,0.1)"><div>${p.title}</div><div style="display:flex;gap:8px;align-items:center"><strong>₹${p.price}</strong> <button class="small" onclick="removeFromCart(${idx})">Remove</button></div></div>`;
+            });
+            html += `</div><div style="margin-top:16px;padding-top:12px;border-top:2px solid rgba(99,102,241,0.2);display:flex;justify-content:space-between;font-size:18px"><div><strong>Total</strong></div><div style="color:var(--accent)"><strong>₹${total}</strong></div></div><div style="margin-top:16px;display:flex;gap:8px"><button class="btn primary" onclick="checkout()">Proceed to Checkout</button><button class="btn" onclick="closeModal()">Continue Shopping</button></div>`;
+            showModal(html);
+        }
+        function removeFromCart(index){
+            const cartIds = JSON.parse(localStorage.getItem('tse_cart') || '[]');
+            cartIds.splice(index,1);
+            localStorage.setItem('tse_cart', JSON.stringify(cartIds));
+            openCart();
+            updateCartCount();
+        }
+        function checkout(){
+            const cartIds = JSON.parse(localStorage.getItem('tse_cart') || '[]');
+            const projects = JSON.parse(localStorage.getItem('tse_projects') || '[]');
+            const cartItems = cartIds.map(id => projects.find(p => p.id === id)).filter(p => p);
+            
+            if(cartItems.length === 0){
+                alert('Cart is empty');
+                return;
+            }
+
+            const total = cartItems.reduce((sum, p) => sum + (p.price || 0), 0);
+            
+            // Show customer info form before checkout
+            const checkoutHtml = `<h3 style="margin-top:0;color:var(--accent)">🛒 Checkout</h3>
+                <div style="background:rgba(99,102,241,0.1);padding:12px;border-radius:10px;margin-bottom:12px">
+                    <div style="font-weight:700;margin-bottom:8px">Order Summary</div>
+                    <div style="font-size:13px">Items: ${cartItems.length}</div>
+                    <div style="font-size:18px;font-weight:700;color:var(--accent);margin-top:4px">Total: ₹${total}</div>
+                </div>
+                <form id="checkoutForm" onsubmit="completeCheckout(event)" style="display:grid;gap:12px">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                        <div>
+                            <label>Your Name</label>
+                            <input id="checkoutName" placeholder="Full name" required />
+                        </div>
+                        <div>
+                            <label>Email</label>
+                            <input id="checkoutEmail" type="email" placeholder="your@email.com" required />
+                        </div>
+                    </div>
+                    <div>
+                        <label>Phone</label>
+                        <input id="checkoutPhone" type="tel" placeholder="+91 XXXXX XXXXX" />
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:8px">
+                        <button class="btn primary" type="submit">💳 Complete Order</button>
+                        <button class="btn" type="button" onclick="closeModal()">Cancel</button>
+                    </div>
+                </form>`;
+            showModal(checkoutHtml);
+        }
+
+        function completeCheckout(e){
+            e.preventDefault();
+            const cartIds = JSON.parse(localStorage.getItem('tse_cart') || '[]');
+            const projects = JSON.parse(localStorage.getItem('tse_projects') || '[]');
+            const cartItems = cartIds.map(id => projects.find(p => p.id === id)).filter(p => p);
+            
+            const total = cartItems.reduce((sum, p) => sum + (p.price || 0), 0);
+            const order = {
+                id: Date.now(),
+                date: new Date().toISOString(),
+                items: cartItems.map(p => ({id: p.id, title: p.title, price: p.price, category: p.category})),
+                total: total,
+                customerName: document.getElementById('checkoutName').value.trim(),
+                customerEmail: document.getElementById('checkoutEmail').value.trim(),
+                customerPhone: document.getElementById('checkoutPhone').value.trim() || '',
+                status: 'completed'
+            };
+
+            const orders = JSON.parse(localStorage.getItem('tse_orders') || '[]');
+            orders.push(order);
+            localStorage.setItem('tse_orders', JSON.stringify(orders));
+
+            localStorage.setItem('tse_cart', JSON.stringify([]));
+            updateCartCount();
+            closeModal();
+            showModal('<div style="padding:20px;text-align:center"><div style="font-size:24px;margin-bottom:12px">✅</div><h3 style="color:var(--success)">Thank You!</h3><p class="muted">Your order has been placed successfully. Order ID: #' + order.id + '</p><p class="muted" style="font-size:12px;margin-top:8px">We will contact you at ' + order.customerEmail + ' soon!</p><button class="btn primary" onclick="closeModal()" style="margin-top:12px">Done</button></div>');
+        }
+        function buyNow(id){
+            localStorage.setItem('tse_cart', JSON.stringify([id]));
+            checkout();
+        }
+        function showModal(html){
+            document.getElementById('modalContent').innerHTML = html;
+            document.getElementById('modal').classList.add('open');
+        }
+        function closeModal(e){
+            if(e && e.target && e.target.id!=='modal') return;
+            document.getElementById('modal').classList.remove('open');
+        }
+        async function submitProject(e){
+            e.preventDefault();
+            const title = document.getElementById('pTitle').value.trim();
+            const category = document.getElementById('pCategory').value;
+            const desc = document.getElementById('pDescription').value.trim();
+            const tools = document.getElementById('pTools').value;
+            const price = Number(document.getElementById('pPrice').value) || 0;
+            const fileInput = document.getElementById('pImage');
+            let dataURL = '';
+            if(fileInput.files && fileInput.files[0]){
+                dataURL = await readFileAsDataURL(fileInput.files[0]);
+            }
+            const projects = JSON.parse(localStorage.getItem('tse_projects') || '[]');
+            const newId = projects.length ? Math.max(...projects.map(p=>p.id))+1 : 1;
+            const submission = {id:newId,title,category,desc,tools,price,creatorId:1,image:dataURL,pending:true};
+            projects.push(submission);
+            localStorage.setItem('tse_projects', JSON.stringify(projects));
+            alert('✅ Project submitted for review! It will appear after admin approval.');
+            clearSellForm();
+            renderProjects();
+            const adminQueue = JSON.parse(localStorage.getItem('tse_admin_queue') || '[]');
+            adminQueue.push(submission.id);
+            localStorage.setItem('tse_admin_queue', JSON.stringify(adminQueue));
+        }
+        function readFileAsDataURL(file){
+            return new Promise((res,rej)=>{
+                const fr = new FileReader();
+                fr.onload = ()=>res(fr.result);
+                fr.onerror = ()=>rej(fr.error);
+                fr.readAsDataURL(file);
+            });
+        }
+        function clearSellForm(){
+            document.getElementById('sellForm').reset();
+            calculateRevenueShare();
+        }
+        function calculateRevenueShare(){
+            const price = Number(document.getElementById('pPrice').value) || 0;
+            const fee = Math.round(price * platformFee / 100);
+            const share = Math.round(price - fee);
+            document.getElementById('revPrice').textContent = '₹'+price;
+            document.getElementById('revFee').textContent = '₹'+fee;
+            document.getElementById('revShare').textContent = '₹'+share;
+        }
+        function applyIntern(e){
+            e.preventDefault();
+            const app = {
+                name:document.getElementById('iName').value,
+                email:document.getElementById('iEmail').value,
+                contact:document.getElementById('iContact').value,
+                skills:document.getElementById('iSkills').value,
+                portfolio:document.getElementById('iPortfolio').value,
+                date: new Date().toISOString()
+            };
+            const apps = JSON.parse(localStorage.getItem('tse_intern_apps') || '[]');
+            apps.push(app);
+            localStorage.setItem('tse_intern_apps', JSON.stringify(apps));
+            alert('✅ Application submitted! Our team will contact you soon.');
+            clearInternForm();
+        }
+        function clearInternForm(){
+            document.getElementById('internForm').reset();
+        }
+        function sendContact(e){
+            e.preventDefault();
+            const msg = {
+                id: Date.now(),
+                name:document.getElementById('cName').value.trim(),
+                email:document.getElementById('cEmail').value.trim(),
+                message:document.getElementById('cMessage').value.trim(),
+                date: new Date().toISOString(),
+                type: 'contact'
+            };
+            const msgs = JSON.parse(localStorage.getItem('tse_messages') || '[]');
+            msgs.push(msg);
+            localStorage.setItem('tse_messages', JSON.stringify(msgs));
+            alert('✅ Message sent! We\'ll get back to you soon.');
+            clearContactForm();
+        }
+        function clearContactForm(){ document.getElementById('contactForm').reset(); }
+        function renderProfiles(){
+            const grid = document.getElementById('profilesGrid');
+            const data = JSON.parse(localStorage.getItem('tse_creators') || '[]');
+            grid.innerHTML = '';
+            data.forEach(c=>{
+                const div = document.createElement('div');div.className='profile';
+                div.innerHTML = `<div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">
+                    <div class="avatar">${c.name.split(' ').map(s=>s[0]).slice(0,2).join('')}</div>
+                    <div>
+                        <div style="font-weight:700;color:var(--accent)">${c.name}</div>
+                        <div class="muted" style="font-size:13px">${c.bio}</div>
+                    </div>
+                </div>
+                <div style="margin:8px 0"><strong>🔧 Skills:</strong> ${Array.isArray(c.skills)?c.skills.join(', '):c.skills}</div>
+                <div style="margin:8px 0;display:flex;justify-content:space-between;align-items:center">
+                    <div class="muted">⭐ ${c.rating || '—'}</div>
+                    <div><button class="small" onclick="viewCreator(${c.id})">View Profile</button></div>
+                </div>`;
+                grid.appendChild(div);
+            });
+        }
+        function viewCreator(id){
+            const data = JSON.parse(localStorage.getItem('tse_creators') || '[]');
+            const c = data.find(x=>x.id===id);
+            if(!c) return alert('Creator not found');
+            const html = `<h3 style="color:var(--accent);margin-top:0">${c.name}</h3><div class="muted">${c.bio}</div><div style="margin:12px 0"><strong>🔧 Skills:</strong> ${Array.isArray(c.skills)?c.skills.join(', '):c.skills}</div><div style="margin:12px 0"><strong>⭐ Rating:</strong> ${c.rating || '—'}</div><div style="margin-top:16px;padding-top:12px;border-top:1px solid rgba(99,102,241,0.1);display:flex;gap:8px"><button class="btn primary" onclick="closeModal()">Close</button></div>`;
+            showModal(html);
+        }
+        function openAdmin(){
+            if(!localStorage.getItem('tse_logged_in')){
+                alert('⚠️ Owner access required. Please login first.');
+                openOwnerLogin();
+                return;
+            }
+            const html = `<h3 style="margin-top:0;color:var(--accent)">⚙️ Admin Dashboard</h3>
+                <div style="display:flex;gap:8px;margin-bottom:12px">
+                  <button class="btn primary" onclick="publishAllProjects()">Publish All Projects</button>
+                  <button class="btn" onclick="publishAllDesigns()">Publish All Designs</button>
+                  <button class="btn" onclick="publishAllInterns()">Publish All Interns</button>
+                </div>
+                <div style="background:rgba(99,102,241,0.1);padding:12px;border-radius:10px;margin-bottom:12px"><label style="display:block;margin-bottom:4px">Platform Fee:</label><div style="display:flex;gap:8px;align-items:center"><input id="adminFee" type="number" value="${platformFee}" style="width:80px;padding:8px;border-radius:8px;border:1px solid rgba(99,102,241,0.2)"/>% <button class="btn primary" onclick="saveAdminSettings()" style="padding:8px 12px;font-size:13px">Save</button></div></div>
+                <div style="margin-top:16px"><h4 style="color:var(--accent)">📋 Pending Submissions</h4><div id="adminQueue"></div></div>
+                <div style="margin-top:16px"><h4 style="color:var(--accent)">👥 Intern Applications</h4><div id="adminInterns"></div></div>
+            `;
+            showModal(html);
+            renderAdminData();
+        }
+
+        // Internal Access - Owner Only
+        function openInternalAccess(){
+            if(!localStorage.getItem('tse_logged_in')){
+                alert('⚠️ Owner access required. Please login first.');
+                openOwnerLogin();
+                return;
+            }
+            const html = `<h3 style="margin-top:0;color:var(--accent)">🔐 Internal Access - Customer Details</h3>
+                <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
+                    <button class="btn primary" onclick="viewAllCustomers()">👥 All Customers</button>
+                    <button class="btn" onclick="viewAllOrders()">🛒 All Orders</button>
+                    <button class="btn" onclick="viewAllMessages()">📧 Messages</button>
+                    <button class="btn" onclick="viewAllHires()">🤝 Hire Requests</button>
+                    <button class="btn" onclick="exportToGoogleSheets()">📊 Export CSV</button>
+                    <button class="btn" onclick="syncToGoogleSheets()">☁️ Sync to Sheets</button>
+                </div>
+                <div id="internalDataView" style="max-height:60vh;overflow:auto;padding:12px;background:rgba(99,102,241,0.05);border-radius:10px">
+                    <div class="muted" style="text-align:center;padding:20px">Select an option above to view data</div>
+                </div>
+            `;
+            showModal(html);
+        }
+
+        // Google Sheets Configuration
+        const GOOGLE_SHEETS_ID = '1DcQOD7TvMS5q8g_CEBA9LsPoTjMRVTCebPT-PMkt8TY';
+        // Google Apps Script Web App URL - Replace with your deployed Web App URL
+        // To set up: 1) Open your Google Sheet, 2) Extensions > Apps Script, 3) Paste the code below, 4) Deploy as Web App
+        const GOOGLE_SCRIPT_URL = ''; // Replace with your Web App URL after deployment
+        
+        // Alternative: Direct export to Google Sheets (opens in new tab for manual copy) - OWNER ONLY
+        function exportToGoogleSheets(){
+            if(!localStorage.getItem('tse_logged_in')){
+                alert('⚠️ Owner access required. This is private information.');
+                openOwnerLogin();
+                return;
+            }
+            const allData = {
+                timestamp: new Date().toISOString(),
+                projects: JSON.parse(localStorage.getItem('tse_projects') || '[]'),
+                creators: JSON.parse(localStorage.getItem('tse_creators') || '[]'),
+                orders: JSON.parse(localStorage.getItem('tse_orders') || '[]'),
+                messages: JSON.parse(localStorage.getItem('tse_messages') || '[]'),
+                internApps: JSON.parse(localStorage.getItem('tse_intern_apps') || '[]'),
+                hires: JSON.parse(localStorage.getItem('tse_hires') || '[]')
+            };
+            
+            // Create CSV format for easy import
+            let csv = 'Data Type,Timestamp,Details\n';
+            
+            // Export Projects
+            allData.projects.forEach(p => {
+                csv += `Project,${p.id},"${p.title}, ${p.category}, ₹${p.price}"\n`;
+            });
+            
+            // Export Orders
+            allData.orders.forEach(o => {
+                csv += `Order,${o.date},"${o.customerEmail}, ₹${o.total}, ${o.items.length} items"\n`;
+            });
+            
+            // Export Messages
+            allData.messages.forEach(m => {
+                csv += `Message,${m.date},"${m.name} (${m.email}): ${m.message.substring(0,50)}"\n`;
+            });
+            
+            // Export Intern Apps
+            allData.internApps.forEach(a => {
+                csv += `Intern App,${a.date},"${a.name} (${a.email}), Skills: ${a.skills || 'N/A'}"\n`;
+            });
+            
+            // Create download link
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `TSE_Data_Export_${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            alert('✅ Data exported as CSV! You can import this into Google Sheets.\n\nTo import:\n1. Open your Google Sheet\n2. File > Import > Upload\n3. Select the downloaded CSV file');
+        }
+
+        // View all customers with detailed information - OWNER ONLY
+        function viewAllCustomers(){
+            if(!localStorage.getItem('tse_logged_in')){
+                alert('⚠️ Owner access required. This is private information.');
+                openOwnerLogin();
+                return;
+            }
+            const customers = [];
+            const orders = JSON.parse(localStorage.getItem('tse_orders') || '[]');
+            const messages = JSON.parse(localStorage.getItem('tse_messages') || '[]');
+            const interns = JSON.parse(localStorage.getItem('tse_intern_apps') || '[]');
+            const hires = JSON.parse(localStorage.getItem('tse_hires') || '[]');
+            
+            // Collect unique customers from orders
+            orders.forEach(order => {
+                if(order.customerEmail && !customers.find(c => c.email === order.customerEmail)){
+                    const customerOrders = orders.filter(o => o.customerEmail === order.customerEmail);
+                    customers.push({
+                        email: order.customerEmail,
+                        name: order.customerName || 'Unknown',
+                        phone: order.customerPhone || 'N/A',
+                        totalOrders: customerOrders.length,
+                        totalSpent: customerOrders.reduce((sum, o) => sum + (o.total || 0), 0),
+                        orders: customerOrders,
+                        messages: messages.filter(m => m.email === order.customerEmail),
+                        hireRequests: hires.filter(h => h.customerEmail === order.customerEmail)
+                    });
+                }
+            });
+            
+            // Add customers from messages
+            messages.forEach(msg => {
+                if(msg.email && !customers.find(c => c.email === msg.email)){
+                    customers.push({
+                        email: msg.email,
+                        name: msg.name || 'Unknown',
+                        phone: 'N/A',
+                        totalOrders: 0,
+                        totalSpent: 0,
+                        orders: [],
+                        messages: [msg],
+                        hireRequests: []
+                    });
+                }
+            });
+            
+            // Add customers from intern applications
+            interns.forEach(intern => {
+                if(intern.email && !customers.find(c => c.email === intern.email)){
+                    customers.push({
+                        email: intern.email,
+                        name: intern.name || 'Unknown',
+                        phone: intern.contact || 'N/A',
+                        totalOrders: 0,
+                        totalSpent: 0,
+                        orders: [],
+                        messages: [],
+                        hireRequests: [],
+                        isIntern: true
+                    });
+                }
+            });
+
+            const div = document.getElementById('internalDataView');
+            if(customers.length === 0){
+                div.innerHTML = '<div class="muted" style="text-align:center;padding:20px">No customer data found.</div>';
+                return;
+            }
+
+            // Calculate statistics
+            const totalRevenue = customers.reduce((sum, c) => sum + c.totalSpent, 0);
+            const totalOrdersCount = customers.reduce((sum, c) => sum + c.totalOrders, 0);
+
+            let html = `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px">
+                <div style="padding:12px;background:rgba(99,102,241,0.1);border-radius:10px;text-align:center">
+                    <div style="font-size:24px;font-weight:700;color:var(--accent)">${customers.length}</div>
+                    <div class="muted" style="font-size:12px">Total Customers</div>
+                </div>
+                <div style="padding:12px;background:rgba(16,185,129,0.1);border-radius:10px;text-align:center">
+                    <div style="font-size:24px;font-weight:700;color:var(--success)">₹${totalRevenue}</div>
+                    <div class="muted" style="font-size:12px">Total Revenue</div>
+                </div>
+                <div style="padding:12px;background:rgba(236,72,153,0.1);border-radius:10px;text-align:center">
+                    <div style="font-size:24px;font-weight:700;color:var(--accent-2)">${totalOrdersCount}</div>
+                    <div class="muted" style="font-size:12px">Total Orders</div>
+                </div>
+            </div>`;
+
+            customers.forEach((c, idx) => {
+                html += `<div style="padding:12px;margin-bottom:8px;background:rgba(255,255,255,0.8);border-radius:10px;border:1px solid rgba(99,102,241,0.1)">
+                    <div style="display:flex;justify-content:space-between;align-items:start">
+                        <div style="flex:1">
+                            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+                                <div style="font-weight:700;color:var(--accent);font-size:16px">${c.name}</div>
+                                ${c.isIntern ? '<span style="background:rgba(245,158,11,0.2);padding:2px 8px;border-radius:6px;font-size:10px;color:var(--accent-3)">Intern</span>' : ''}
+                            </div>
+                            <div class="muted" style="font-size:12px;margin-bottom:2px">📧 ${c.email}</div>
+                            <div class="muted" style="font-size:12px;margin-bottom:8px">📞 ${c.phone}</div>
+                            <div style="display:flex;gap:12px;font-size:12px;margin-top:8px;padding-top:8px;border-top:1px solid rgba(99,102,241,0.1)">
+                                <span>🛒 <strong>${c.totalOrders}</strong> orders</span>
+                                <span>💰 <strong>₹${c.totalSpent}</strong> spent</span>
+                                <span>📧 <strong>${c.messages.length}</strong> messages</span>
+                                ${c.hireRequests.length > 0 ? `<span>🤝 <strong>${c.hireRequests.length}</strong> hire requests</span>` : ''}
+                            </div>
+                        </div>
+                        <button class="small" onclick="viewCustomerDetails('${c.email}')" style="margin-left:8px">View Details</button>
+                    </div>
+                </div>`;
+            });
+            div.innerHTML = html;
+        }
+
+        // View detailed customer information - OWNER ONLY
+        function viewCustomerDetails(email){
+            if(!localStorage.getItem('tse_logged_in')){
+                alert('⚠️ Owner access required. This is private information.');
+                openOwnerLogin();
+                return;
+            }
+            const orders = JSON.parse(localStorage.getItem('tse_orders') || '[]').filter(o => o.customerEmail === email);
+            const messages = JSON.parse(localStorage.getItem('tse_messages') || '[]').filter(m => m.email === email);
+            const interns = JSON.parse(localStorage.getItem('tse_intern_apps') || '[]').filter(i => i.email === email);
+            const hires = JSON.parse(localStorage.getItem('tse_hires') || '[]');
+            const projects = JSON.parse(localStorage.getItem('tse_projects') || '[]');
+            
+            const customer = orders[0] || messages[0] || interns[0];
+            if(!customer) return;
+            
+            let html = `<h3 style="margin-top:0;color:var(--accent)">👤 Customer Details</h3>
+                <div style="background:rgba(99,102,241,0.1);padding:16px;border-radius:10px;margin-bottom:16px">
+                    <div style="font-weight:700;font-size:18px;color:var(--accent);margin-bottom:8px">${customer.customerName || customer.name || 'Unknown'}</div>
+                    <div class="muted" style="font-size:13px">📧 ${email}</div>
+                    <div class="muted" style="font-size:13px">📞 ${customer.customerPhone || customer.contact || 'N/A'}</div>
+                </div>`;
+            
+            if(orders.length > 0){
+                html += `<h4 style="color:var(--accent);margin-top:16px">🛒 Orders (${orders.length})</h4>`;
+                orders.forEach(order => {
+                    const date = order.date ? new Date(order.date).toLocaleString() : 'N/A';
+                    html += `<div style="padding:10px;margin-bottom:8px;background:rgba(255,255,255,0.8);border-radius:8px;border:1px solid rgba(99,102,241,0.1)">
+                        <div style="font-weight:600;margin-bottom:4px">Order #${order.id} - ₹${order.total}</div>
+                        <div class="muted" style="font-size:12px">📅 ${date}</div>
+                        <div style="font-size:12px;margin-top:4px">Items: ${order.items ? order.items.map(i => i.title).join(', ') : 'N/A'}</div>
+                    </div>`;
+                });
+            }
+            
+            if(messages.length > 0){
+                html += `<h4 style="color:var(--accent);margin-top:16px">📧 Messages (${messages.length})</h4>`;
+                messages.forEach(msg => {
+                    const date = msg.date ? new Date(msg.date).toLocaleString() : 'N/A';
+                    html += `<div style="padding:10px;margin-bottom:8px;background:rgba(255,255,255,0.8);border-radius:8px;border:1px solid rgba(99,102,241,0.1)">
+                        <div class="muted" style="font-size:12px;margin-bottom:4px">📅 ${date}</div>
+                        <div style="font-size:13px">${msg.message || 'No message'}</div>
+                    </div>`;
+                });
+            }
+            
+            if(interns.length > 0){
+                html += `<h4 style="color:var(--accent);margin-top:16px">👨‍💼 Intern Application</h4>`;
+                interns.forEach(intern => {
+                    html += `<div style="padding:10px;margin-bottom:8px;background:rgba(255,255,255,0.8);border-radius:8px;border:1px solid rgba(99,102,241,0.1)">
+                        <div style="font-weight:600;margin-bottom:4px">${intern.name}</div>
+                        <div class="muted" style="font-size:12px">Skills: ${intern.skills || 'N/A'}</div>
+                        <div class="muted" style="font-size:12px">Portfolio: ${intern.portfolio || 'N/A'}</div>
+                    </div>`;
+                });
+            }
+            
+            html += `<div style="margin-top:16px"><button class="btn primary" onclick="closeModal()">Close</button></div>`;
+            showModal(html);
+        }
+
+        // View all orders - OWNER ONLY
+        function viewAllOrders(){
+            if(!localStorage.getItem('tse_logged_in')){
+                alert('⚠️ Owner access required. This is private information.');
+                openOwnerLogin();
+                return;
+            }
+            const orders = JSON.parse(localStorage.getItem('tse_orders') || '[]');
+            const div = document.getElementById('internalDataView');
+            
+            if(orders.length === 0){
+                div.innerHTML = '<div class="muted" style="text-align:center;padding:20px">No orders found.</div>';
+                return;
+            }
+
+            let html = `<h4 style="color:var(--accent);margin-top:0">Total Orders: ${orders.length}</h4>`;
+            let totalRevenue = 0;
+            orders.forEach(order => {
+                totalRevenue += order.total || 0;
+                const date = order.date ? new Date(order.date).toLocaleDateString() : 'N/A';
+                html += `<div style="padding:12px;margin-bottom:8px;background:rgba(255,255,255,0.8);border-radius:10px;border:1px solid rgba(99,102,241,0.1)">
+                    <div style="display:flex;justify-content:space-between;align-items:start">
+                        <div style="flex:1">
+                            <div style="font-weight:700;color:var(--accent);margin-bottom:4px">Order #${order.id || 'N/A'}</div>
+                            <div class="muted" style="font-size:12px">👤 ${order.customerName || 'Unknown'} (${order.customerEmail || 'N/A'})</div>
+                            <div class="muted" style="font-size:12px">📅 ${date}</div>
+                            <div style="margin-top:8px;font-size:13px">
+                                <div>Items: ${order.items ? order.items.length : 0}</div>
+                                <div style="font-weight:700;color:var(--success);margin-top:4px">Total: ₹${order.total || 0}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            });
+            html += `<div style="margin-top:16px;padding:12px;background:rgba(99,102,241,0.1);border-radius:10px;font-weight:700;color:var(--accent)">Total Revenue: ₹${totalRevenue}</div>`;
+            div.innerHTML = html;
+        }
+
+        // View all messages - OWNER ONLY
+        function viewAllMessages(){
+            if(!localStorage.getItem('tse_logged_in')){
+                alert('⚠️ Owner access required. This is private information.');
+                openOwnerLogin();
+                return;
+            }
+            const messages = JSON.parse(localStorage.getItem('tse_messages') || '[]');
+            const div = document.getElementById('internalDataView');
+            
+            if(messages.length === 0){
+                div.innerHTML = '<div class="muted" style="text-align:center;padding:20px">No messages found.</div>';
+                return;
+            }
+
+            let html = `<h4 style="color:var(--accent);margin-top:0">Total Messages: ${messages.length}</h4>`;
+            messages.forEach((msg, idx) => {
+                const date = msg.date ? new Date(msg.date).toLocaleString() : 'N/A';
+                html += `<div style="padding:12px;margin-bottom:8px;background:rgba(255,255,255,0.8);border-radius:10px;border:1px solid rgba(99,102,241,0.1)">
+                    <div style="font-weight:700;color:var(--accent);margin-bottom:4px">${msg.name || 'Unknown'}</div>
+                    <div class="muted" style="font-size:12px">📧 ${msg.email || 'N/A'} • 📅 ${date}</div>
+                    <div style="margin-top:8px;padding:8px;background:rgba(99,102,241,0.05);border-radius:8px;font-size:13px">${msg.message || 'No message'}</div>
+                </div>`;
+            });
+            div.innerHTML = html;
+        }
+
+        // View all hire requests - OWNER ONLY
+        function viewAllHires(){
+            if(!localStorage.getItem('tse_logged_in')){
+                alert('⚠️ Owner access required. This is private information.');
+                openOwnerLogin();
+                return;
+            }
+            const hires = JSON.parse(localStorage.getItem('tse_hires') || '[]');
+            const projects = JSON.parse(localStorage.getItem('tse_projects') || '[]');
+            const div = document.getElementById('internalDataView');
+            
+            if(hires.length === 0){
+                div.innerHTML = '<div class="muted" style="text-align:center;padding:20px">No hire requests found.</div>';
+                return;
+            }
+
+            let html = `<h4 style="color:var(--accent);margin-top:0">Total Hire Requests: ${hires.length}</h4>`;
+            hires.forEach((hire, idx) => {
+                const project = projects.find(p => p.id === hire.projectId);
+                const date = hire.date ? new Date(hire.date).toLocaleString() : 'N/A';
+                html += `<div style="padding:12px;margin-bottom:8px;background:rgba(255,255,255,0.8);border-radius:10px;border:1px solid rgba(99,102,241,0.1)">
+                    <div style="font-weight:700;color:var(--accent);margin-bottom:4px">Project: ${project ? project.title : 'Unknown'}</div>
+                    <div class="muted" style="font-size:12px">📅 ${date}</div>
+                    <div style="margin-top:8px;padding:8px;background:rgba(99,102,241,0.05);border-radius:8px;font-size:13px">${hire.message || 'No message'}</div>
+                </div>`;
+            });
+            div.innerHTML = html;
+        }
+
+        // Sync all data to Google Sheets - OWNER ONLY
+        async function syncToGoogleSheets(){
+            if(!localStorage.getItem('tse_logged_in')){
+                alert('⚠️ Owner access required. This is private information.');
+                openOwnerLogin();
+                return;
+            }
+            if(!GOOGLE_SCRIPT_URL){
+                const setupHtml = `<h3 style="margin-top:0;color:var(--accent)">📊 Google Sheets Setup</h3>
+                    <div style="background:rgba(99,102,241,0.1);padding:16px;border-radius:10px;margin-bottom:16px">
+                        <h4 style="margin-top:0">Setup Instructions:</h4>
+                        <ol style="margin:8px 0;padding-left:20px;font-size:13px;line-height:1.8">
+                            <li>Open your Google Sheet: <a href="https://docs.google.com/spreadsheets/d/${GOOGLE_SHEETS_ID}/edit" target="_blank" style="color:var(--accent)">Open Sheet</a></li>
+                            <li>Go to <strong>Extensions > Apps Script</strong></li>
+                            <li>Delete default code and paste the Google Apps Script code (see below)</li>
+                            <li>Click <strong>Deploy > New deployment</strong></li>
+                            <li>Select type: <strong>Web app</strong></li>
+                            <li>Set Execute as: <strong>Me</strong>, Who has access: <strong>Anyone</strong></li>
+                            <li>Click <strong>Deploy</strong> and copy the Web App URL</li>
+                            <li>Paste the URL in the code at <code>GOOGLE_SCRIPT_URL</code></li>
+                        </ol>
+                    </div>
+                    <div style="background:rgba(245,158,11,0.1);padding:12px;border-radius:10px;margin-bottom:12px">
+                        <h4 style="margin-top:0">Google Apps Script Code:</h4>
+                        <textarea readonly style="width:100%;min-height:200px;padding:8px;font-family:monospace;font-size:11px;border:1px solid rgba(99,102,241,0.2);border-radius:8px;background:rgba(255,255,255,0.9)" onclick="this.select()">function doPost(e) {
+  try {
+    const sheet = SpreadsheetApp.openById('${GOOGLE_SHEETS_ID}').getActiveSheet();
+    const data = JSON.parse(e.postData.contents);
+    const timestamp = new Date().toISOString();
+    
+    // Write header if sheet is empty
+    if(sheet.getLastRow() === 0) {
+      sheet.appendRow(['Type', 'Timestamp', 'ID', 'Details', 'Data']);
+    }
+    
+    // Write Projects
+    if(data.projects) {
+      data.projects.forEach(p => {
+        sheet.appendRow(['Project', timestamp, p.id, p.title, JSON.stringify(p)]);
+      });
+    }
+    
+    // Write Orders
+    if(data.orders) {
+      data.orders.forEach(o => {
+        sheet.appendRow(['Order', timestamp, o.id, o.customerEmail, JSON.stringify(o)]);
+      });
+    }
+    
+    // Write Messages
+    if(data.messages) {
+      data.messages.forEach(m => {
+        sheet.appendRow(['Message', timestamp, m.email, m.name, JSON.stringify(m)]);
+      });
+    }
+    
+    // Write Intern Apps
+    if(data.internApps) {
+      data.internApps.forEach(a => {
+        sheet.appendRow(['Intern', timestamp, a.email, a.name, JSON.stringify(a)]);
+      });
+    }
+    
+    return ContentService.createTextOutput(JSON.stringify({success: true}))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch(error) {
+    return ContentService.createTextOutput(JSON.stringify({success: false, error: error.toString()}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}</textarea>
+                        <div style="font-size:12px;color:var(--muted);margin-top:8px">💡 Click to select all, then copy and paste into Apps Script</div>
+                    </div>
+                    <button class="btn primary" onclick="closeModal()">Got it</button>`;
+                showModal(setupHtml);
+                return;
+            }
+
+            const loadingMsg = document.getElementById('internalDataView');
+            loadingMsg.innerHTML = '<div style="text-align:center;padding:20px"><div class="muted">⏳ Syncing data to Google Sheets...</div></div>';
+
+            try {
+                // Collect all data
+                const allData = {
+                    timestamp: new Date().toISOString(),
+                    projects: JSON.parse(localStorage.getItem('tse_projects') || '[]'),
+                    creators: JSON.parse(localStorage.getItem('tse_creators') || '[]'),
+                    orders: JSON.parse(localStorage.getItem('tse_orders') || '[]'),
+                    messages: JSON.parse(localStorage.getItem('tse_messages') || '[]'),
+                    internApps: JSON.parse(localStorage.getItem('tse_intern_apps') || '[]'),
+                    hires: JSON.parse(localStorage.getItem('tse_hires') || '[]')
+                };
+
+                // Send to Google Sheets via Web App
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(allData)
+                });
+
+                // Since we're using no-cors, we can't read the response
+                // But we'll show success message
+                loadingMsg.innerHTML = '<div style="text-align:center;padding:20px"><div style="color:var(--success);font-weight:700">✅ Data sync initiated!</div><div class="muted" style="margin-top:8px;font-size:12px">Check your Google Sheets to verify.</div><div class="muted" style="margin-top:8px;font-size:12px">Last sync: ' + new Date().toLocaleString() + '</div></div>';
+                
+                // Also save to localStorage as backup
+                localStorage.setItem('tse_last_sync', new Date().toISOString());
+                
+            } catch(error){
+                loadingMsg.innerHTML = `<div style="text-align:center;padding:20px"><div style="color:var(--danger)">❌ Sync failed: ${error.message}</div><div class="muted" style="margin-top:8px;font-size:12px">Data is still saved locally. Try exporting CSV instead.</div></div>`;
+            }
+        }
+
+        // Enhanced checkout to save orders
+        function checkout(){
+            const cartIds = JSON.parse(localStorage.getItem('tse_cart') || '[]');
+            const projects = JSON.parse(localStorage.getItem('tse_projects') || '[]');
+            const cartItems = cartIds.map(id => projects.find(p => p.id === id)).filter(p => p);
+            
+            if(cartItems.length === 0){
+                alert('Cart is empty');
+                return;
+            }
+
+            const total = cartItems.reduce((sum, p) => sum + (p.price || 0), 0);
+            const order = {
+                id: Date.now(),
+                date: new Date().toISOString(),
+                items: cartItems,
+                total: total,
+                customerName: 'Guest',
+                customerEmail: 'guest@example.com',
+                customerPhone: ''
+            };
+
+            const orders = JSON.parse(localStorage.getItem('tse_orders') || '[]');
+            orders.push(order);
+            localStorage.setItem('tse_orders', JSON.stringify(orders));
+
+            localStorage.setItem('tse_cart', JSON.stringify([]));
+            updateCartCount();
+            showModal('<div style="padding:20px;text-align:center"><div style="font-size:24px;margin-bottom:12px">✅</div><h3 style="color:var(--success)">Thank You!</h3><p class="muted">Your order has been placed successfully. Prepare to receive access to your projects soon!</p><button class="btn primary" onclick="closeModal()" style="margin-top:12px">Done</button></div>');
+        }
+        function renderAdminData(){
+            const queue = JSON.parse(localStorage.getItem('tse_admin_queue') || '[]');
+            const projects = JSON.parse(localStorage.getItem('tse_projects') || '[]');
+            const qdiv = document.getElementById('adminQueue');
+            qdiv.innerHTML = queue.length ? '' : '<div class="muted">No pending submissions.</div>';
+            queue.forEach(id=>{
+                const p = projects.find(x=>x.id===id);
+                if(!p) return;
+                const div = document.createElement('div');
+                div.style.display='flex';div.style.justifyContent='space-between';div.style.alignItems='center';div.style.padding='10px';div.style.marginBottom='8px';div.style.background='rgba(99,102,241,0.05)';div.style.borderRadius='8px';
+                div.innerHTML = `<div><strong>${p.title}</strong><div class="muted" style="font-size:13px">${p.category} • ₹${p.price}</div></div><div style="display:flex;gap:6px"><button class="small" onclick="approveProject(${p.id})">✅ Approve</button> <button class="small" style="background:rgba(239,68,68,0.1);color:var(--danger);border-color:rgba(239,68,68,0.2)" onclick="rejectProject(${p.id})">❌ Reject</button></div>`;
+                qdiv.appendChild(div);
+            });
+            const interns = JSON.parse(localStorage.getItem('tse_intern_apps') || '[]');
+            const idiv = document.getElementById('adminInterns');
+            idiv.innerHTML = interns.length ? '' : '<div class="muted">No intern applications.</div>';
+            interns.forEach((a,idx)=>{
+                const d = document.createElement('div');d.style.padding='10px';d.style.marginBottom='8px';d.style.background='rgba(99,102,241,0.05)';d.style.borderRadius='8px';
+                d.innerHTML = `<div><strong>${a.name}</strong><div class="muted" style="font-size:13px">📧 ${a.email} • 📞 ${a.contact}</div><div class="muted" style="font-size:13px">Skills: ${a.skills || 'Not specified'}</div></div>`;
+                idiv.appendChild(d);
+            });
+        }
+        function saveAdminSettings(){
+            const v = Number(document.getElementById('adminFee').value) || DEFAULT_FEE_PERCENT;
+            platformFee = v;
+            alert('✅ Platform fee updated to '+v+'%');
+            closeModal();
+        }
+        function approveProject(id){
+            const projects = JSON.parse(localStorage.getItem('tse_projects') || '[]');
+            const p = projects.find(x=>x.id===id);
+            if(p) p.pending = false;
+            localStorage.setItem('tse_projects', JSON.stringify(projects));
+            let queue = JSON.parse(localStorage.getItem('tse_admin_queue') || '[]');
+            queue = queue.filter(x=>x!==id);
+            localStorage.setItem('tse_admin_queue', JSON.stringify(queue));
+            renderProjects();
+            renderAdminData();
+            alert('✅ Project approved!');
+        }
+        function rejectProject(id){
+            let projects = JSON.parse(localStorage.getItem('tse_projects') || '[]');
+            projects = projects.filter(x=>x.id!==id);
+            localStorage.setItem('tse_projects', JSON.stringify(projects));
+            let queue = JSON.parse(localStorage.getItem('tse_admin_queue') || '[]');
+            queue = queue.filter(x=>x!==id);
+            localStorage.setItem('tse_admin_queue', JSON.stringify(queue));
+            renderProjects();
+            renderAdminData();
+            alert('❌ Project rejected');
+        }
+
+        // Initialize default owner credentials if not set
+        function initDefaultOwner(){
+            if(!localStorage.getItem('tse_owner')){
+                const defaultOwner = {
+                    email: 'yourname@gmail.com',
+                    pass: 'TSE@2024',
+                    phone: '',
+                    name: 'Owner',
+                    bio: '',
+                    skills: [],
+                    portfolio: '',
+                    linkedin: '',
+                    github: '',
+                    website: '',
+                    cv: null
+                };
+                localStorage.setItem('tse_owner', JSON.stringify(defaultOwner));
+            }
+        }
+
+        // New: owner login modal (non-duplicate IDs) and publish helpers
+        function openOwnerLogin(){
+            const logged = !!localStorage.getItem('tse_logged_in');
+            if(logged){
+                const html = `<h3 style="margin-top:0;color:var(--accent)">🔐 Owner Access</h3>
+                    <div style="background:rgba(16,185,129,0.1);padding:16px;border-radius:10px;margin-bottom:16px">
+                        <div style="font-weight:700;color:var(--success);margin-bottom:8px">✅ You are logged in as owner</div>
+                        <div class="muted" style="font-size:13px">You have full access to all internal features and data.</div>
+                    </div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap">
+                        <button class="btn primary" onclick="openInternalAccess()">🔐 Internal Access</button>
+                        <button class="btn" onclick="openAdmin()">⚙️ Admin Dashboard</button>
+                        <button class="btn" onclick="openOwnerProfile()">👤 Edit Profile</button>
+                        <button class="btn" onclick="ownerLogout()" style="background:rgba(239,68,68,0.1);color:var(--danger);border-color:rgba(239,68,68,0.2)">Logout</button>
+                    </div>`;
+                showModal(html);
+                return;
+            }
+            const html = `<h3 style="margin-top:0;color:var(--accent)">🔐 Owner Login</h3>
+                <div style="background:rgba(99,102,241,0.1);padding:12px;border-radius:10px;margin-bottom:12px;font-size:13px">
+                    <div style="font-weight:600;margin-bottom:6px">⚠️ Private Access Only</div>
+                    <div class="muted">This area is restricted to authorized owners only.</div>
+                </div>
+                <div style="display:grid;gap:8px">
+                  <div><label>Email</label>
+                  <input id="ownerEmailModal" type="email" placeholder="Owner email" autocomplete="off" /></div>
+                  <div><label>Password</label><input id="ownerPassModal" type="password" placeholder="Enter password" autocomplete="off" /></div>
+                  <div style="display:flex;gap:8px"><button class="btn primary" onclick="ownerAuthenticateModal()">Login</button><button class="btn" onclick="closeModal()">Cancel</button></div>
+                </div>`;
+            showModal(html);
+        }
+        function setOwnerCredentialsModal(){
+            if(!localStorage.getItem('tse_logged_in')){
+                alert('⚠️ You must be logged in to change credentials.');
+                return;
+            }
+            const email = document.getElementById('ownerEmailSetModal');
+            const pass = document.getElementById('ownerPassSetModal');
+            if(!email || !pass){ 
+                alert('⚠️ Please use the profile editor to change credentials.');
+                openOwnerProfile();
+                return; 
+            }
+            const emailVal = email.value.trim();
+            const passVal = pass.value;
+            if(!emailVal || !passVal){ alert('Provide email and password'); return; }
+            const existing = JSON.parse(localStorage.getItem('tse_owner') || '{}');
+            const updated = {
+                ...existing,
+                email: emailVal,
+                pass: passVal,
+                phone: existing.phone || '',
+                name: existing.name || 'Owner',
+                bio: existing.bio || '',
+                skills: existing.skills || [],
+                portfolio: existing.portfolio || '',
+                linkedin: existing.linkedin || '',
+                github: existing.github || '',
+                website: existing.website || '',
+                cv: existing.cv || null
+            };
+            localStorage.setItem('tse_owner', JSON.stringify(updated));
+            alert('✅ Owner credentials updated');
+            ownerStatusUpdate();
+            closeModal();
+        }
+        function ownerAuthenticateModal(){
+            const emailEl = document.getElementById('ownerEmailModal');
+            const passEl = document.getElementById('ownerPassModal');
+            if(!emailEl || !passEl){
+                alert('❌ Login form not found');
+                return;
+            }
+            const email = emailEl.value.trim();
+            const pass = passEl.value;
+            if(!email || !pass){
+                alert('❌ Please enter both email and password');
+                return;
+            }
+            const owner = JSON.parse(localStorage.getItem('tse_owner') || '{}');
+            // Check default credentials if owner not set
+            const defaultEmail = owner.email || 'yourname@gmail.com';
+            const defaultPass = owner.pass || 'TSE@2024';
+            if((owner.email===email && owner.pass===pass) || (defaultEmail===email && defaultPass===pass)){
+                localStorage.setItem('tse_logged_in','1');
+                alert('✅ Logged in as owner');
+                ownerStatusUpdate();
+                closeModal();
+            } else {
+                alert('❌ Invalid owner credentials');
+            }
+        }
+        
+        function ownerLogout(){
+            if(confirm('⚠️ Are you sure you want to logout? You will lose access to private features.')){
+                localStorage.removeItem('tse_logged_in');
+                alert('✅ Logged out successfully');
+                ownerStatusUpdate();
+                updateAdminButton();
+                closeModal();
+            }
+        }
+        
+        // Make ownerLogout globally accessible
+        window.ownerLogout = ownerLogout;
+
+        // Publish helpers: projects, designs, interns
+        function publishAllProjects(){
+            if(!localStorage.getItem('tse_logged_in')){ alert('You must be owner to perform this.'); return; }
+            let projects = JSON.parse(localStorage.getItem('tse_projects') || '[]');
+            projects = projects.map(p => Object.assign({},p,{pending:false}));
+            localStorage.setItem('tse_projects', JSON.stringify(projects));
+            localStorage.setItem('tse_admin_queue', JSON.stringify([]));
+            renderProjects();
+            renderAdminData();
+            alert('✅ All projects published.');
+        }
+        function publishAllDesigns(){
+            if(!localStorage.getItem('tse_logged_in')){ alert('You must be owner to perform this.'); return; }
+            const designCats = ['Design','Branding','Graphics','UI/UX'];
+            let projects = JSON.parse(localStorage.getItem('tse_projects') || '[]');
+            projects = projects.map(p => designCats.includes(p.category) ? Object.assign({},p,{pending:false}) : p);
+            localStorage.setItem('tse_projects', JSON.stringify(projects));
+            // remove published designs from admin queue
+            let queue = JSON.parse(localStorage.getItem('tse_admin_queue') || '[]');
+            queue = queue.filter(id=>{
+                const p = projects.find(x=>x.id===id);
+                return p && p.pending;
+            });
+            localStorage.setItem('tse_admin_queue', JSON.stringify(queue));
+            renderProjects();
+            renderAdminData();
+            alert('✅ All design-category items published.');
+        }
+        function publishAllInterns(){
+            if(!localStorage.getItem('tse_logged_in')){ alert('You must be owner to perform this.'); return; }
+            const interns = JSON.parse(localStorage.getItem('tse_intern_apps') || '[]');
+            if(!interns.length){ alert('No intern applications to publish.'); return; }
+            let creators = JSON.parse(localStorage.getItem('tse_creators') || '[]');
+            let nextId = creators.length ? Math.max(...creators.map(c=>c.id))+1 : 1;
+            interns.forEach(a=>{
+                creators.push({id:nextId++, name:a.name, bio:(a.skills?('Skills: '+a.skills):'Intern'), skills:a.skills? a.skills.split(',').map(s=>s.trim()):[], rating:4.0, links:{}, email:a.email});
+            });
+            localStorage.setItem('tse_creators', JSON.stringify(creators));
+            localStorage.setItem('tse_intern_apps', JSON.stringify([]));
+            renderProfiles();
+            renderAdminData();
+            alert('✅ All intern applications converted to creators and published.');
+        }
+
+        function scrollToSection(id){
+            const el = document.getElementById(id);
+            if(!el) return;
+            const headerOffset = 100;
+            const elementPosition = el.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+        init();
+    </script>
+</body>
+</html>
